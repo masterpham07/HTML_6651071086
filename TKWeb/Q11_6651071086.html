@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tạo form và các điều khiển trên form</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <!-- Tạo form -->
+    <form id="frmDangNhap">
+        <!-- Tạo table trong form với định dạng màu sắc tương tự hình -->
+        <table border="1" cellpadding="8" cellspacing="0" style="margin: 0 auto; background-color: #EDF4FA; border-color: #A8C3D9; border-collapse: collapse;">
+            <!-- Dòng tiêu đề -->
+            <tr>
+                <td colspan="2" align="center">
+                    <h2 style="color: #A03522; margin: 5px 0;">Đăng nhập</h2>
+                </td>
+            </tr>
+            <!-- Dòng Mã người dùng -->
+            <tr>
+                <td>Mã người dùng</td>
+                <td><input type="text" id="txtMaNguoiDung"></td>
+            </tr>
+            <!-- Dòng Mật khẩu -->
+            <tr>
+                <td>Mật khẩu</td>
+                <td><input type="password" id="txtMatKhau"></td>
+            </tr>
+            <!-- Dòng Nút bấm và Nhãn hiển thị kết quả -->
+            <tr>
+                <td colspan="2" align="center">
+                    <!-- Nút Button gọi hàm khi click -->
+                    <input type="button" id="btnDongY" value="Đồng ý" onclick="hienThiMaNguoiDung()">
+                    
+                    <!-- Điều khiển nhãn (div) để xuất nội dung -->
+                    <div id="lblKetQua" style="color: #2F74D0; font-weight: bold; margin-top: 10px;"></div>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <!-- Xử lý chức năng -->
+    <script>
+        function hienThiMaNguoiDung() {
+            // Lấy giá trị (value) từ điều khiển nhập Mã người dùng
+            var maNguoiDung = document.getElementById("txtMaNguoiDung").value;
+            
+            // Gán vào thuộc tính innerText của thẻ div nhãn
+            document.getElementById("lblKetQua").innerText = maNguoiDung;
+        }
+    </script>
+</body>
+</html>
