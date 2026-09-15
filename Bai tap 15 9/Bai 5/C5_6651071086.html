@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng ký tài khoản mới</title>
+    <style>
+        body { font-family: sans-serif; background-color: #f0f4f8; display: flex; justify-content: center; padding: 20px; }
+        .form-box { background: white; padding: 20px 40px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.1); width: 600px; }
+        
+        h2 { text-align: center; font-size: 18px; margin-bottom: 20px; }
+        
+        /* Bám sát viền xanh, nền xám nhẹ của demo */
+        fieldset { border: 1px solid #a8d0e6; border-radius: 4px; margin-bottom: 15px; padding: 15px; background-color: #f4fafb; }
+        legend { font-size: 13px; color: #333; padding: 0 5px; background: transparent; }
+        
+        .row { display: flex; margin-bottom: 8px; align-items: center; font-size: 12px; }
+        .row label { width: 140px; color: #333; }
+        
+        input[type="text"], input[type="email"], input[type="password"], input[type="tel"], 
+        input[type="number"], input[type="date"], input[type="search"], input[type="url"] {
+            flex: 1; padding: 5px; border: 1px solid #ccc; border-radius: 3px; font-size: 12px;
+        }
+        
+        /* Bắt chước dải màu input type=range màu xanh */
+        input[type="range"] { flex: 1; accent-color: #007bff; }
+        
+        input[type="color"] { width: 40px; height: 25px; padding: 0; border: 1px solid #ccc; }
+        
+        .btn-group { text-align: center; margin-top: 15px; }
+        .btn { padding: 6px 15px; border: none; border-radius: 3px; font-size: 12px; cursor: pointer; color: white; }
+        .btn-submit { background-color: #3b82f6; }
+        .btn-reset { background-color: #6b7280; }
+    </style>
+</head>
+<body>
+    <div class="form-box">
+        <h2>Đăng ký tài khoản mới</h2>
+        
+        <form action="xu_ly_dangky.php" method="POST" enctype="multipart/form-data">
+            <fieldset>
+                <legend>Thông tin cơ bản</legend>
+                <div class="row">
+                    <label>Họ và tên:</label>
+                    <input type="text" name="hoten" value="Nguyễn Văn An" required>
+                </div>
+                <div class="row">
+                    <label>Email:</label>
+                    <input type="email" name="email" value="example@gmail.com" required>
+                </div>
+                <div class="row">
+                    <label>Mật khẩu:</label>
+                    <input type="password" name="matkhau" value="********" required>
+                </div>
+                <div class="row">
+                    <label>Số điện thoại:</label>
+                    <input type="tel" name="sdt" value="0901234567">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Thông tin cá nhân</legend>
+                <div class="row">
+                    <label>Tuổi:</label>
+                    <input type="number" name="tuoi" value="18">
+                </div>
+                <div class="row">
+                    <label>Ngày sinh:</label>
+                    <input type="date" name="ngaysinh" value="2005-01-01" style="flex: none; width: 130px;">
+                </div>
+                <div class="row">
+                    <label>Giới tính:</label>
+                    <div style="flex: 1;">
+                        <input type="radio" name="gioitinh" value="nam"> Nam
+                        <input type="radio" name="gioitinh" value="nu" checked> Nữ
+                        <input type="radio" name="gioitinh" value="khac"> Khác
+                    </div>
+                </div>
+                <div class="row">
+                    <label>Màu yêu thích:</label>
+                    <input type="color" name="mauua" value="#ff6b6b">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Sở thích & Cài đặt</legend>
+                <div class="row">
+                    <label>Tìm kiếm sở thích:</label>
+                    <input type="search" name="soikim" placeholder="Ví dụ: đọc sách, chơi game...">
+                </div>
+                <div class="row">
+                    <label>Mức chi tiêu/tháng (VNĐ):</label>
+                    <input type="text" value="5.000.000" style="width: 80px; flex: none; margin-right: 10px;">
+                    <input type="range" name="chitieu" min="0" max="50000000" step="500000" value="5000000">
+                </div>
+                <div class="row">
+                    <label>Sở thích (chọn nhiều):</label>
+                    <div style="flex: 1;">
+                        <input type="checkbox" name="st_docsinh" checked> Đọc sách
+                        <input type="checkbox" name="st_game"> Chơi game
+                        <input type="checkbox" name="st_du_lich" checked> Du lịch
+                    </div>
+                </div>
+                <div class="row">
+                    <label>Website cá nhân:</label>
+                    <input type="url" name="website" value="https://example.com">
+                </div>
+                <div class="row">
+                    <label>Ảnh đại diện:</label>
+                    <input type="file" name="avatar" style="border: none; padding: 0;">
+                </div>
+            </fieldset>
+            
+            <div class="btn-group">
+                <input type="submit" class="btn btn-submit" value="Đăng ký ngay">
+                <input type="reset" class="btn btn-reset" value="Nhập lại">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

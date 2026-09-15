@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>VietAir - Đặt vé máy bay</title>
+    <style>
+        body { font-family: sans-serif; background-color: #e3f2fd; display: flex; flex-direction: column; align-items: center; padding: 40px 0; margin: 0;}
+        
+        /* Bắt chước logo VietAir */
+        .logo { font-size: 24px; font-weight: bold; margin-bottom: 20px; }
+        .logo .viet { color: #0277bd; }
+        .logo .air { color: #f57c00; }
+        
+        /* Form box giống hình */
+        .form-box { background: white; padding: 25px 35px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 600px; }
+        .form-box h2 { text-align: center; font-size: 18px; margin-top: 0; margin-bottom: 25px; }
+        
+        h3 { font-size: 14px; margin-bottom: 10px; margin-top: 20px; }
+        
+        .row { display: flex; gap: 15px; margin-bottom: 15px; }
+        .col { flex: 1; display: flex; flex-direction: column; }
+        
+        label { font-size: 12px; margin-bottom: 5px; color: #333; }
+        input[type="text"], input[type="date"], input[type="number"], select { 
+            padding: 8px; border: 1px solid #ccc; border-radius: 5px; font-size: 12px; 
+        }
+        
+        .price-result { font-size: 14px; margin: 15px 0; }
+        .price-result strong { font-size: 16px; }
+        .price-result span { font-size: 11px; color: #777; font-weight: normal; }
+        
+        .security-notice { display: flex; gap: 10px; font-size: 11px; color: #555; margin-bottom: 20px; align-items: flex-start; }
+        
+        /* Nút màu cam dài */
+        .btn-submit { width: 100%; padding: 12px; background-color: #f57c00; color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: bold; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <span class="viet">Viet</span><span class="air">Air</span> ✈️
+    </div>
+    
+    <div class="form-box">
+        <h2>Đặt vé máy bay VietAir - Kết quả Bài tập</h2>
+        
+        <form action="xu_ly_ve.php" method="POST">
+            <h3>1. Thông tin chuyến bay</h3>
+            <div class="row">
+                <div class="col">
+                    <label>Điểm đi:</label>
+                    <input type="text" list="danhsach" value="Hà Nội - HAN">
+                </div>
+                <div class="col">
+                    <label>Điểm đến:</label>
+                    <input type="text" list="danhsach" value="Đà Nẵng - DAD">
+                </div>
+            </div>
+            
+            <datalist id="danhsach">
+                <option value="Hà Nội - HAN">
+                <option value="TP. Hồ Chí Minh - SGN">
+                <option value="Đà Nẵng - DAD">
+            </datalist>
+
+            <div class="row">
+                <div class="col" style="flex: 0.5;">
+                    <label>Ngày đi:</label>
+                    <input type="date" value="2023-10-15">
+                </div>
+                <div class="col" style="flex: 0.5;">
+                    <label>Ngày về:</label>
+                    <input type="date" value="2023-10-18">
+                </div>
+                <div class="col">
+                    <label>Hạng ghế:</label>
+                    <select>
+                        <optgroup label="Phổ thông">
+                            <option>Phổ thông basic - 1.200.000₫</option>
+                            <option>Phổ thông flex - 1.800.000₫</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+
+            <h3>2. Thông tin hành khách</h3>
+            <div class="row">
+                <div class="col">
+                    <label>Số hành khách người lớn:</label>
+                    <input type="number" value="2">
+                </div>
+                <div class="col">
+                    <label>Số trẻ em:</label>
+                    <input type="number" value="1">
+                </div>
+                <div class="col">
+                    <label>Mã giảm giá:</label>
+                    <input type="text" list="magiam" value="SUMMER20">
+                    <datalist id="magiam">
+                        <option value="SUMMER20">
+                        <option value="NEWMEMBER">
+                        <option value="HOLIDAY50">
+                    </datalist>
+                </div>
+            </div>
+
+            <h3>3. Kết quả ước tính</h3>
+            <div class="price-result">
+                Tổng tiền ước tính: <strong>3.600.000 VNĐ</strong> 
+                <span>(for illustration only, matching input example)</span>
+            </div>
+
+            <h3>4. Bảo mật giao dịch</h3>
+            <div class="security-notice">
+                <span>🔒</span>
+                <span>Hệ thống sẽ tạo một cặp khóa mã hóa để bảo vệ thông tin của bạn. (Keygen has been deprecated and does not display on modern browsers; code only to structure).</span>
+                <keygen name="security" style="display: none;">
+            </div>
+            
+            <button type="submit" class="btn-submit">✈️ Tìm chuyến bay</button>
+        </form>
+    </div>
+</body>
+</html>

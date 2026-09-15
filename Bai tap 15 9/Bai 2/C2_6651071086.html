@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo Sinh Viên CNTT</title>
+    <style>
+        body { font-family: sans-serif; margin: 0; background-color: #e9f2f9; color: #333; }
+        .wrapper { width: 90%; max-width: 1200px; margin: 0 auto; background: white; min-height: 100vh; border-left: 1px solid #ccc; border-right: 1px solid #ccc; }
+        
+        /* Header xanh lá/xanh dương */
+        header { background: linear-gradient(to right, #007bff, #00c6ff, #00b09b); text-align: center; padding: 20px; color: white; }
+        header h1 { margin: 0; font-size: 28px; }
+        header p { margin: 5px 0 0; font-size: 14px; }
+        
+        /* Navigation viên thuốc */
+        nav { background-color: #f8f9fa; padding: 15px; text-align: center; border-bottom: 1px solid #ddd; }
+        nav a { display: inline-block; text-decoration: none; padding: 8px 20px; border-radius: 20px; color: #555; margin: 0 5px; font-weight: bold; font-size: 14px; }
+        nav a:first-child { background-color: #007bff; color: white; }
+        nav a:nth-child(2) { background-color: #17a2b8; color: white; }
+        
+        main { display: flex; padding: 20px; gap: 20px; }
+        
+        /* Article nền xám nhạt */
+        article { flex: 7; background-color: #eaeff2; padding: 20px; border-radius: 5px; border: 1px solid #d1dbdf; line-height: 1.6; font-size: 14px; }
+        article h2 { margin-top: 0; font-size: 20px; }
+        article header p { font-size: 12px; color: #666; margin-bottom: 15px; }
+        article footer { font-size: 12px; font-style: italic; margin-top: 20px; }
+        
+        /* Aside thẻ trắng nổi */
+        aside { flex: 3; }
+        aside .aside-box { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border: 1px solid #eee; }
+        aside h3 { margin-top: 0; font-size: 16px; color: #333; }
+        aside ul { padding-left: 0; list-style: none; margin: 0; }
+        aside ul li { margin-bottom: 15px; }
+        aside ul li a { text-decoration: none; color: #444; font-size: 13px; }
+        
+        /* Footer xám đáy */
+        body > footer, .wrapper > footer { background-color: #e2e8f0; text-align: center; padding: 15px; font-size: 12px; border-top: 1px solid #ccc; color: #333; }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <hgroup>
+                <h1>BÁO SINH VIÊN CNTT</h1>
+                <p>Tin tức - Công nghệ - Sáng tạo</p>
+            </hgroup>
+        </header>
+
+        <nav>
+            <a href="#">Trang chủ</a>
+            <a href="#">Tin công nghệ</a>
+            <a href="#">Sự kiện</a>
+            <a href="#">Liên hệ</a>
+        </nav>
+
+        <main>
+            <article>
+                <header>
+                    <h2>Khám Phá Sức Mạnh AI: Hội Thảo 'Tương Lai Đổi Mới' Chấn Động Giới Trẻ</h2>
+                    <p>Tác giả: Nguyễn Văn An | Ngày: 15/11/2024</p>
+                </header>
+                
+                <p><strong>AI (Artificial Intelligence)</strong>, <em>Hội thảo Tương Lai Đổi Mới</em> châm Phí AIChấn động giản với cánh phẩm Bội Sức Lực học AI Tương Lai đổi Mới cârnini thái nhiên đôi kản thì kinh nhân mạnh nặc tương thư nghệ ai đất thục hoạt biên phúng hay. <em>Hội thảo Tương Lai Đổi Mới</em> chấn động đổi Mới chấn lao khên hoa hông nhà Vân Trẻ.</p>
+                
+                <p><strong>Máy học</strong> <em>Đác</em> hay nhánh tỉnh làm <em>Hội thảo Tương Lai tạo</em>, <strong>AI</strong>, mình Máy học ro dao để hại văn zn dên của nhi xử viên thicki lòa nghiệp, hiệm và học mình viên ban nhưng tt sát truật, <em>Diễn đàn Thanh niên Sáng tạo</em>.</p>
+                
+                <p><strong>Công nghệ số</strong> <em>Răn strong</em> Tính tháo xát độ <strong>Diễn đàn Thanh niên Sáng tạo</strong>, diễn nài mrôn viên từ xác Tân mạn kí thế và thình học rãi thút triện đổi AI. Hội Tháo thâo đổi Mới cả nghệ. Tường hình lên mội năng, Kỹ thuật gián đầnn tài khôn ình quý người hiện Sáng tạo.</p>
+
+                <footer>
+                    <p>Nguồn: CLB Tin học - ĐH ABC</p>
+                </footer>
+            </article>
+
+            <aside>
+                <div class="aside-box">
+                    <h3>Tin liên quan</h3>
+                    <ul>
+                        <li><a href="#">Hackathon Sinh viên 2024 -<br>Tham Gia Ngay!</a></li>
+                        <li><a href="#">Workshop Web Design cho<br>Người Mới Bắt Đầu</a></li>
+                        <li><a href="#">Meetup Khởi Nghiệp Công<br>Nghệ Trẻ</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </main>
+
+        <footer>
+            <address>Trường Đại học ABC | Số 123 Đường Sáng Tạo, Phường Kỹ Thuật, Quận Công Nghệ, TP. Hồ Chí Minh | SĐT: 028-9876543 | Email: lienhe@abc.edu.vn | Website: www.abc.edu.vn</address>
+        </footer>
+    </div>
+</body>
+</html>

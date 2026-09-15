@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Điện tử Sinh Viên - Phạm Đan Trường</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f9fd; margin: 0; padding: 20px; color: #333; }
+        .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); overflow: hidden; }
+        header { background: linear-gradient(to right, #2596be, #e28743); padding: 30px 40px; color: white; height: 60px; }
+        header h1 { margin: 0; font-size: 24px; text-transform: uppercase; }
+        nav { background: white; padding: 5px; display: inline-flex; gap: 5px; border-radius: 20px; margin: -20px 0 0 40px; position: relative; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        nav a { text-decoration: none; padding: 8px 20px; border-radius: 15px; color: #555; font-size: 12px; font-weight: bold; background: #f0f0f0; }
+        nav a.active { background: #d4ecea; color: #2596be; }
+        main { display: flex; gap: 20px; padding: 30px 40px; align-items: flex-start; }
+        .box { background: #fdfdfd; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.03); font-size: 13px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        table, th, td { border: 1px solid #d4ecea; }
+        th, td { padding: 8px; text-align: left; }
+        th { background-color: #f0f8f7; color: #2596be; }
+        footer { text-align: center; padding: 15px; background-color: #d4ecea; font-size: 12px; color: #555; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <hgroup>
+                <h1>ĐIỆN TỬ UTC2</h1>
+                <h2>Shop công nghệ sinh viên</h2>
+            </hgroup>
+        </header>
+        <nav>
+            <a href="#" class="active">SẢN PHẨM</a>
+            <a href="#">BẢO HÀNH</a>
+            <a href="#">LIÊN HỆ</a>
+        </nav>
+        <main>
+            <section class="box" style="flex: 2;">
+                <h2 style="color: #2596be; margin-top: 0;">Samsung Galaxy S24 Ultra</h2>
+                <img src="s24ultra.jpg" alt="Samsung Galaxy S24 Ultra" width="200" style="display: block; margin: 0 auto; border-radius: 8px;">
+                <p>Sản phẩm flagship mới nhất với cấu hình mạnh mẽ, phù hợp cho dân CNTT chạy code và test ứng dụng.</p>
+                <table>
+                    <caption><strong>Thông số kỹ thuật</strong></caption>
+                    <thead>
+                        <tr><th scope="col">Thông số</th><th scope="col">Chi tiết</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><th scope="row">Màn hình</th><td>6.8 inch Dynamic AMOLED 2X</td></tr>
+                        <tr><th scope="row">Pin</th><td>5000 mAh</td></tr>
+                        <tr><th scope="row">RAM</th><td>12GB</td></tr>
+                    </tbody>
+                </table>
+            </section>
+            <aside class="box" style="flex: 1;">
+                <h3 style="color: #2596be; margin-top: 0;">Chính sách mua hàng</h3>
+                <ul>
+                    <li>Bảo hành 12 tháng</li>
+                    <li>Đổi trả 7 ngày</li>
+                    <li>Freeship cho sinh viên UTC2</li>
+                </ul>
+            </aside>
+        </main>
+        <footer>
+            <address>An Nhơn Đông, Gia Lai | Email: email@sv.edu.vn | ĐT: 0901-234-567</address>
+            <p>&copy; 2024 – PHẠM ĐAN TRƯỜNG. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
