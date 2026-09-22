@@ -1,0 +1,7 @@
+Dán link Figma (chế độ xem) của bạn vào đây trước khi nộp bài, ví dụ:
+https://www.figma.com/file/xxxxxxxxxx/BlogCaNhan?type=design
+
+Gợi ý: bạn có thể dựng lại wireframe/mockup trong Figma dựa theo bố cục
+đã có sẵn ở html/index.html + css/style.css (header sticky, hero, giới
+thiệu, kỹ năng, dự án, hành trình, bài viết, footer) rồi xuất ảnh hoặc
+lấy link chia sẻ để nộp kèm theo đúng yêu cầu đề bài.

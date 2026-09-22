@@ -1,0 +1,558 @@
+/* =========================================================
+   [HỌ VÀ TÊN] — style.css
+   Bài 2: Dự án cá nhân — Blog giới thiệu bản thân sinh viên
+
+   Ghi chú: các vị trí có vận dụng 1 trong 7 nhóm kiến thức
+   CSS3 của Chương 7 đều được đánh dấu bằng comment bắt đầu
+   bằng [Nhóm ...] để phục vụ báo cáo/thuyết trình.
+   ========================================================= */
+
+:root {
+  --paper: #ecece1;
+  --paper-2: #f5f4ec;
+  --ink: #16242e;
+  --ink-soft: #45525c;
+  --amber: #e2963a;
+  --teal: #2f6f62;
+  --coral: #c1502e;
+  --line: #d8d4c4;
+
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Source Serif 4", Georgia, serif;
+}
+
+/* [Nhóm Selector — universal] reset mặc định mọi phần tử */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* [Nhóm Selector — tag] nền giấy & kiểu chữ thân bài */
+body {
+  background: var(--paper-2);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.7;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* [Nhóm Selector — group ,] các cấp tiêu đề dùng chung font hiển thị */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  color: var(--ink);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  margin-bottom: 28px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+/* =========== HEADER (sticky) =========== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(245, 244, 236, 0.9);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-bar {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--coral);
+}
+
+/* [Nhóm Selector — child combinator >] chỉ ul con trực tiếp của nav */
+.main-nav > ul {
+  display: flex;
+  gap: 26px;
+  list-style: none;
+}
+
+/* [Nhóm Selector — descendant] các thẻ a nằm trong danh sách điều hướng */
+.main-nav ul li a {
+  font-size: 0.92rem;
+  font-family: var(--font-display);
+  font-weight: 500;
+  position: relative;
+}
+
+/* [Nhóm Selector — pseudo-element ::after] gạch chân hoạt hình khi hover */
+.main-nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: var(--coral);
+  transition: width 0.25s ease; /* [Nhóm Transitions & Animations] */
+}
+
+.main-nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* =========== HERO =========== */
+
+.hero {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px 28px 40px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: center;
+  background-image: url("../images/hero-network.svg");
+  background-repeat: no-repeat;
+  /* [Nhóm Border & Background] background-size + background-position trên nền mạng lưới đồ thị */
+  background-size: 640px;
+  background-position: right -60px top 20px;
+}
+
+.hero__greeting {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--ink-soft);
+  margin-bottom: 14px;
+}
+
+/* [Nhóm Text Effects] hiệu ứng đổi chữ qua lại giữa hai ngôn ngữ */
+.lang-cycle {
+  position: relative;
+  display: inline-block;
+  min-width: 8ch;
+  height: 1.3em;
+  vertical-align: bottom;
+}
+
+.lang-cycle__item {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--coral);
+  font-weight: 700;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.5s ease, transform 0.5s ease; /* [Nhóm Transitions & Animations] */
+}
+
+.lang-cycle__item.is-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero__headline {
+  font-size: clamp(1.9rem, 3.6vw, 2.8rem);
+  line-height: 1.25;
+  margin-bottom: 20px;
+}
+
+.hero__intro {
+  color: var(--ink-soft);
+  max-width: 56ch;
+  margin-bottom: 28px;
+}
+
+.hero__cta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* [Nhóm User Interface] các nút bấm tương tác chính của trang */
+.btn {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.92rem;
+  padding: 12px 24px;
+  border-radius: 999px;
+  display: inline-block;
+  border: 2px solid var(--ink);
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease; /* [Nhóm Transitions & Animations] */
+}
+
+.btn--primary {
+  background: var(--ink);
+  color: var(--paper-2);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--ink);
+}
+
+/* [Nhóm 2D/3D Transform] nút nhô lên nhẹ khi hover */
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.btn--primary:hover {
+  background: var(--coral);
+  border-color: var(--coral);
+}
+
+.btn--ghost:hover {
+  background: var(--ink);
+  color: var(--paper-2);
+}
+
+.hero__portrait img {
+  border-radius: 24px; /* [Nhóm Border & Background] bo góc khối chân dung */
+  border: 1px solid var(--line);
+}
+
+/* =========== GIỚI THIỆU =========== */
+
+.about {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 28px 60px;
+}
+
+.about__text {
+  margin-bottom: 18px;
+  color: var(--ink-soft);
+}
+
+/* Phrasing content nhấn mạnh từ khoá */
+.about__text strong {
+  color: var(--ink);
+}
+
+.about__text em {
+  color: var(--teal);
+  font-style: italic;
+}
+
+.tag-inline {
+  font-family: var(--font-display);
+  background: var(--paper);
+  border-radius: 6px;
+  padding: 1px 8px;
+  font-size: 0.9em;
+}
+
+.coursework {
+  margin-top: 30px;
+  padding: 24px;
+  background: var(--paper);
+  border-radius: 16px;
+}
+
+.coursework__label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+}
+
+/* [Nhóm Multiple Columns] danh sách môn học chảy theo nhiều cột */
+.coursework__list {
+  list-style: none;
+  columns: 2;
+  column-gap: 32px;
+}
+
+.coursework__list li {
+  break-inside: avoid;
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--line);
+  font-size: 0.94rem;
+}
+
+/* =========== KỸ NĂNG =========== */
+
+.skills {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 28px 60px;
+}
+
+.pill-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* [Nhóm User Interface] thẻ kỹ năng dạng pill badge */
+.pill {
+  background: var(--ink);
+  color: var(--paper-2);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  padding: 8px 16px;
+  border-radius: 999px;
+  transition: transform 0.2s ease; /* [Nhóm Transitions & Animations] */
+}
+
+/* [Nhóm 2D/3D Transform] phóng to nhẹ khi hover từng tag */
+.pill:hover {
+  transform: scale(1.08);
+  background: var(--teal);
+}
+
+/* =========== DỰ ÁN =========== */
+
+.projects {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 28px 70px;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 26px;
+}
+
+/* [Nhóm Border & Background] bo góc + đổ bóng cho card dự án */
+.project-card {
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 22px -16px rgba(22, 36, 46, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease; /* [Nhóm Transitions & Animations] */
+}
+
+/* [Nhóm 2D/3D Transform] card nổi lên khi hover */
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 30px -16px rgba(22, 36, 46, 0.4);
+}
+
+.project-card__img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.project-card__title {
+  font-size: 1.05rem;
+  padding: 18px 20px 0;
+}
+
+.project-card__desc {
+  padding: 10px 20px 0;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.project-card__link {
+  display: inline-block;
+  margin: 14px 20px 20px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--coral);
+}
+
+/* =========== HÀNH TRÌNH =========== */
+
+.timeline {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 28px 70px;
+}
+
+.timeline__list {
+  list-style: none;
+  border-left: 2px solid var(--line);
+  padding-left: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+.timeline__item {
+  position: relative;
+}
+
+.timeline__dot {
+  position: absolute;
+  left: -37px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--amber);
+  border: 3px solid var(--paper-2);
+  box-shadow: 0 0 0 2px var(--amber);
+}
+
+.timeline__time {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--coral);
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+}
+
+.timeline__desc {
+  color: var(--ink-soft);
+  max-width: 60ch;
+}
+
+/* =========== BÀI VIẾT + ASIDE =========== */
+
+.posts-layout {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 28px 70px;
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 40px;
+}
+
+.post-preview {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.post-preview h3 {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.post-preview p {
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.aside-block {
+  background: var(--paper);
+  border-radius: 16px;
+  padding: 22px;
+}
+
+.aside-block h3 {
+  font-size: 1rem;
+  margin-bottom: 14px;
+}
+
+.aside-social {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.9rem;
+}
+
+.aside-social a:hover {
+  color: var(--coral);
+}
+
+/* =========== FOOTER =========== */
+
+.site-footer {
+  background: var(--ink);
+  color: var(--paper-2);
+  padding: 40px 28px 26px;
+  text-align: center;
+  position: relative;
+}
+
+.footer-social {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 16px;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+}
+
+.footer-social a:hover {
+  color: var(--amber);
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  color: rgba(245, 244, 236, 0.6);
+}
+
+/* [Nhóm User Interface] nút quay về đầu trang */
+.back-to-top {
+  position: absolute;
+  right: 28px;
+  bottom: 26px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(245, 244, 236, 0.4);
+  background: transparent;
+  color: var(--paper-2);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease; /* [Nhóm Transitions & Animations] */
+}
+
+.back-to-top:hover {
+  background: var(--amber);
+  border-color: var(--amber);
+  color: var(--ink);
+  transform: translateY(-3px); /* [Nhóm 2D/3D Transform] */
+}
+
+/* =========== RESPONSIVE =========== */
+
+@media (max-width: 860px) {
+  .hero {
+    grid-template-columns: 1fr;
+    background-position: right -120px top -40px;
+  }
+  .hero__portrait {
+    order: -1;
+    max-width: 220px;
+  }
+  .posts-layout {
+    grid-template-columns: 1fr;
+  }
+  .coursework__list {
+    columns: 1;
+  }
+}
+
+@media (max-width: 560px) {
+  .main-nav > ul {
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .header-bar {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

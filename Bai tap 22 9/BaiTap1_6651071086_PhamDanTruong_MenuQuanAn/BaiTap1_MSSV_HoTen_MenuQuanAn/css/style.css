@@ -1,0 +1,459 @@
+/* =========================================================
+   CÀ PHÊ PHỐ XƯA — style.css
+   Bài 1: Website thực đơn quán cà phê / nhà hàng
+   ========================================================= */
+
+/* ---- Design tokens ---- */
+:root {
+  --green: #1f3d2b;
+  --green-dark: #0f1f15;
+  --brass: #c9a227;
+  --cream: #efe6d6;
+  --cream-2: #f7f2e8;
+  --rust: #8b3a2f;
+  --ink: #211c14;
+
+  --font-display: "Fraunces", serif;
+  --font-body: "Be Vietnam Pro", "Segoe UI", sans-serif;
+
+  --radius-card: 18px;
+  --radius-img: 14px;
+  --shadow-card: 0 14px 30px -18px rgba(15, 31, 21, 0.55);
+}
+
+/* Universal selector (*) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Type/tag selector */
+body {
+  font-family: var(--font-body);
+  background: var(--cream-2);
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Group selector (,) */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  color: var(--green-dark);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========== HEADER =========== */
+
+.site-header {
+  background: var(--green);
+}
+
+.header-bar {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 18px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Class selector */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand__mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+}
+
+.brand__name {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--cream);
+  letter-spacing: 0.02em;
+}
+
+/* Child combinator (>) */
+.main-nav > ul {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+
+/* Descendant selector */
+.main-nav ul li a {
+  color: var(--cream);
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+/* Pseudo-class :hover */
+.main-nav ul li a:hover,
+.main-nav ul li a:focus-visible {
+  border-bottom-color: var(--brass);
+}
+
+/* Pseudo-class :first-child */
+.main-nav ul li:first-child a::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brass);
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* Banner áp dụng Multiple Backgrounds với ảnh thật từ Unsplash */
+.banner {
+  position: relative;
+  padding: 72px 28px 84px;
+  text-align: center;
+  background-image:
+    linear-gradient(180deg, rgba(15, 31, 21, 0.72), rgba(15, 31, 21, 0.9)),
+    url("https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=1200&q=80");
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat;
+}
+
+.banner__eyebrow {
+  color: var(--brass);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+
+.banner__title {
+  color: var(--cream-2);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 700;
+}
+
+/* Adjacent sibling selector (+) */
+.banner__title + .banner__slogan {
+  margin-top: 16px;
+  color: var(--cream);
+  font-style: italic;
+  max-width: 46ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* =========== LAYOUT: MENU + ASIDE =========== */
+
+.layout {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 56px 28px 20px;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 48px;
+  align-items: start;
+}
+
+.menu-group {
+  margin-bottom: 56px;
+}
+
+/* Tiêu đề áp dụng background-origin, background-clip */
+.menu-group__title {
+  display: inline-block;
+  font-size: 1.6rem;
+  padding: 10px 22px;
+  background-image: linear-gradient(to right, rgba(201,162,39,0.1), rgba(201,162,39,0.3));
+  border-radius: 8px;
+  border: 4px dashed transparent;
+  color: var(--ink);
+  background-origin: border-box;
+  background-clip: padding-box;
+}
+
+.menu-group__desc {
+  margin-top: 14px;
+  margin-bottom: 26px;
+  color: #4a4536;
+  max-width: 60ch;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 22px;
+}
+
+/* Card thiết kế mới: Khung viền đôi sang trọng */
+.menu-card {
+  background: var(--cream-2);
+  border-radius: var(--radius-card); 
+  box-shadow: var(--shadow-card);
+  padding: 16px 16px 20px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+  border: 1px solid rgba(201, 162, 39, 0.3); /* Viền ngoài nhẹ */
+}
+
+/* Pseudo-element ::before tạo khung viền đồng bên trong card */
+.menu-card::before {
+  content: '';
+  position: absolute;
+  top: 6px; left: 6px; right: 6px; bottom: 6px;
+  border: 1px solid var(--brass);
+  border-radius: 12px;
+  pointer-events: none; /* Tránh đè lên vùng click của nút */
+}
+
+.menu-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 36px -18px rgba(15, 31, 21, 0.6);
+}
+
+.menu-card__img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--radius-img);
+  margin-bottom: 14px;
+  background: var(--cream);
+  position: relative;
+  z-index: 1; /* Nổi lên trên khung viền */
+}
+
+.menu-card__name {
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+  position: relative;
+  z-index: 1;
+}
+
+.menu-card__desc {
+  font-size: 0.88rem;
+  color: #5a5544;
+  flex-grow: 1;
+  margin-bottom: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.price {
+  display: inline-block;
+  font-weight: 700;
+  color: var(--rust);
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.price--sm {
+  font-size: 0.85rem;
+  margin-bottom: 0;
+}
+
+.btn-order {
+  align-self: flex-start;
+  background: var(--green);
+  color: var(--cream-2);
+  border: none;
+  padding: 9px 18px;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.btn-order:hover {
+  background: var(--rust);
+}
+
+/* =========== ASIDE / SIDEBAR =========== */
+
+.sidebar__block {
+  background: #fff;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 22px;
+  margin-bottom: 24px;
+}
+
+.sidebar__title {
+  font-size: 1.15rem;
+  margin-bottom: 16px;
+}
+
+.favorite-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.favorite-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.favorite-list img {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.favorite-list__name {
+  font-weight: 600;
+  font-size: 0.92rem;
+  margin-bottom: 2px;
+}
+
+/* ID selector — Áp dụng border-image online */
+#promo {
+  background: var(--green);
+  color: var(--cream-2);
+  border-style: solid;
+  border-width: 14px;
+  border-image-source: url("https://www.transparenttextures.com/patterns/diagmonds-light.png");
+  border-image-slice: 30 fill;
+  border-image-repeat: round;
+}
+
+.promo__eyebrow {
+  color: var(--brass);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  margin-bottom: 10px;
+}
+
+.promo__text {
+  font-size: 0.92rem;
+  margin-bottom: 16px;
+}
+
+.promo__cta {
+  display: inline-block;
+  border: 1px solid var(--brass);
+  color: var(--brass);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.promo__cta:hover {
+  background: var(--brass);
+  color: var(--green-dark);
+}
+
+/* =========== FOOTER =========== */
+
+.site-footer {
+  background: var(--green-dark);
+  color: var(--cream);
+  padding: 48px 28px 24px;
+  margin-top: 40px;
+  /* Multiple background images */
+  background-image:
+    url("https://www.transparenttextures.com/patterns/wood-pattern.png"),
+    linear-gradient(180deg, rgba(201, 162, 39, 0.06), transparent 60%);
+  background-repeat: repeat, no-repeat;
+  background-size: 200px, 100% 100%;
+}
+
+.footer-grid {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(239, 230, 214, 0.15);
+}
+
+.footer-col h3 {
+  color: var(--brass);
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+
+.footer-col p {
+  font-size: 0.88rem;
+  color: rgba(239, 230, 214, 0.85);
+  margin-bottom: 6px;
+}
+
+.social-list {
+  list-style: none;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.social-list li a {
+  font-size: 0.85rem;
+  border: 1px solid rgba(239, 230, 214, 0.3);
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+.social-list li a:hover {
+  border-color: var(--brass);
+  color: var(--brass);
+}
+
+.copyright {
+  max-width: 1180px;
+  margin: 18px auto 0;
+  font-size: 0.78rem;
+  color: rgba(239, 230, 214, 0.6);
+  text-align: center;
+}
+
+/* =========== RESPONSIVE =========== */
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .header-bar {
+    flex-direction: column;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 520px) {
+  .main-nav > ul {
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .banner {
+    padding: 56px 20px 64px;
+  }
+}
