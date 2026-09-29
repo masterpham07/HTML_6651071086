@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực Hành Lab 2</title>
+</head>
+<body>
+
+    <script>
+        // 1. Khai báo độ dài 3 cạnh của tam giác
+        let a = 5;
+        let b = 6;
+        let c = 7;
+
+        // 2. Tính nửa chu vi (p)
+        let p = (a + b + c) / 2;
+
+        // 3. Tính diện tích bằng công thức Heron
+        let s = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+
+        // YÊU CẦU 1: Xuất kết quả ra Tab Console (kết quả đầy đủ, không làm tròn)
+        console.log(s);
+
+        // YÊU CẦU 2: Xuất kết quả ra Hộp thoại của trình duyệt (làm tròn 2 chữ số thập phân)
+        window.alert("The area of the triangle is: " + s.toFixed(2));
+
+        // YÊU CẦU 3: Xuất kết quả ra Giao diện trang web (làm tròn 2 chữ số thập phân)
+        document.write("The area of the triangle is: " + s.toFixed(2));
+    </script>
+
+</body>
+</html>

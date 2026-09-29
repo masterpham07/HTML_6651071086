@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Câu 22 - Nhân Chia Hai Số</title>
+    <style>
+        /* CSS cơ bản để tạo viền giống trong hình */
+        .container {
+            border: 1px solid #999;
+            padding: 15px;
+            width: 300px;
+            font-family: sans-serif;
+        }
+        .input-group {
+            margin-bottom: 8px;
+        }
+        label {
+            display: inline-block;
+            width: 100px;
+        }
+        button {
+            margin-right: 5px;
+            margin-top: 5px;
+        }
+        .result-area {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="input-group">
+            <label for="num1">1st Number :</label>
+            <input type="number" id="num1" value="12">
+        </div>
+        <div class="input-group">
+            <label for="num2">2nd Number:</label>
+            <input type="number" id="num2" value="10">
+        </div>
+        
+        <div>
+            <!-- Sử dụng sự kiện onclick để gọi hàm JS -->
+            <button onclick="calculate('multiply')">Multiply</button>
+            <button onclick="calculate('divide')">Divide</button>
+        </div>
+
+        <div class="result-area">
+            The Result Is : <br>
+            <!-- Thẻ span này dùng để chứa kết quả thay đổi bằng JS -->
+            <span id="result">120</span>
+        </div>
+    </div>
+
+    <script>
+        // Hàm tính toán chung nhận tham số là phép tính
+        function calculate(operation) {
+            // Lấy giá trị từ 2 ô input
+            let val1 = document.getElementById("num1").value;
+            let val2 = document.getElementById("num2").value;
+
+            // Chuyển đổi kiểu chuỗi (string) sang số nguyên (integer)
+            let number1 = parseInt(val1);
+            let number2 = parseInt(val2);
+            let result = 0;
+
+            // Kiểm tra xem người dùng có nhập đủ số hay không
+            if (isNaN(number1) || isNaN(number2)) {
+                document.getElementById("result").innerText = "Vui lòng nhập số hợp lệ!";
+                return; // Dừng hàm nếu đầu vào không hợp lệ
+            }
+
+            // Thực hiện phép tính
+            if (operation === 'multiply') {
+                result = number1 * number2;
+            } else if (operation === 'divide') {
+                if (number2 === 0) {
+                    document.getElementById("result").innerText = "Không thể chia cho 0!";
+                    return;
+                }
+                result = number1 / number2;
+            }
+
+            // In kết quả ra màn hình. Ở đây dùng innerText rất an toàn như đã bàn ở trên.
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+
+</body>
+</html>
