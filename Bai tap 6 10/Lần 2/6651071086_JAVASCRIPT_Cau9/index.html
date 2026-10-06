@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Câu 9 - Form Validation</title>
+<link rel="stylesheet" href="Styles/style.css">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="Scripts/main.js" defer></script>
+</head>
+<body>
+<div class="container">
+<h1>Personal Information</h1>
+<form id="registerForm" novalidate>
+<label>Enter name*:</label>
+<input type="text" id="name"><span id="nameError" class="error"></span><br>
+
+<label>Sex*:</label>
+<label style="min-width:auto"><input type="radio" name="sex" value="Male"> Male</label>
+<label style="min-width:auto"><input type="radio" name="sex" value="Female"> Female</label>
+<span id="sexError" class="error"></span><br>
+
+<label>Enter email address*:</label>
+<input type="text" id="email"><span id="emailError" class="error"></span><br>
+
+<label>Enter birthday (MM/DD/YYYY)*:</label>
+<input type="text" id="birthdate" placeholder="mm/dd/yyyy"><span id="birthError" class="error"></span><br>
+
+<label>Enter street address (line 1)*:</label>
+<input type="text" id="address"><span id="addressError" class="error"></span><br>
+
+<label>Enter city*:</label>
+<input type="text" id="city"><span id="cityError" class="error"></span><br>
+
+<label>Select a region*:</label>
+<select id="region">
+<option value="">-- Chọn khu vực --</option>
+<option>Miền Bắc</option>
+<option>Miền Trung</option>
+<option>Miền Nam</option>
+</select>
+<span id="regionError" class="error"></span><br>
+
+<label>Enter 5-digit ZIP code*:</label>
+<input type="text" id="zip" maxlength="5"><span id="zipError" class="error"></span><br>
+
+<button type="button" id="finish">Finished</button>
+<button type="button" id="clear">Clear</button>
+</form>
+<div id="result" class="result"></div>
+</div>
+</body>
+</html>
